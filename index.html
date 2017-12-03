@@ -14,27 +14,37 @@
       <div class="small-6 columns">
         <h1 class="text-center">YOU</h1>
         <div class="healthbar">
-          <div class="healthbar text-center" style="background-color: green; margin: 0; color: white;" :style="{width: playerHealth + '%'}">
+          <div class="healthbar text-center" style="background-color: darkRed; margin: 0; color: gold; font-size: 25px;" :style="{width: playerHealth + '%'}">
             {{playerHealth}}
           </div>
         </div>
+        <div class="imageOut" v-if="gameIsRunning">
+        <div class="image">
+          <img v-bind:src='secondImage'>
+        </div>
+      </div>
       </div>
       <div class="small-6 columns">
         <h1 class="text-center">MONSTER</h1>
         <div class="healthbar">
-          <div class="healthbar text-center" style="background-color: green; margin: 0; color: white;" :style="{width: monsterHealth + '%'}">
+          <div class="healthbar text-center" style="background-color: darkRed; margin: 0; color: gold; font-size: 25px;" :style="{width: monsterHealth + '%'}">
             {{monsterHealth}}
           </div>
         </div>
+        <div class="imageOut" v-if="gameIsRunning">
+        <div class="image">
+          <img v-bind:src='monsterImage'>
+        </div>
+      </div>
       </div>
     </section>
     <!-- Here is where we will use v-if to hide buttons if game is not running -->
-    <section class="row controls" v-if="!gameIsRunning">
-      <div class="small-12 columns">
+    <section class="row controls" style="background-color:yellow;" v-if="!gameIsRunning">
+      <div class="small-12 columns" style="background-color:black;">
         <button id="start-game" @click="start">START NEW GAME</button>
       </div>
     </section>
-    <section class="row controls" v-else>
+    <section class="row controls" style="background-color:black;" v-else>
       <div class="small-12 columns">
         <button id="attack" @click="attack">ATTACK</button>
         <button id="special-attack" @click="specialAttack">SPECIAL ATTACK</button>
